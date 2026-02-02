@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Wallpaper Pro</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #000 no-repeat center center fixed; background-size: cover; transition: 0.8s; font-family: 'Segoe UI', sans-serif; min-height: 100vh; color: #fff; overflow-x: hidden; }
+        body::after { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: -1; }
+        header { text-align: center; padding: 40px; background: rgba(0,0,0,0.5); }
+        .tabs { display: flex; justify-content: center; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+        .tab-btn { background: rgba(255,255,255,0.1); border: 1px solid #444; color: #fff; padding: 10px 20px; border-radius: 20px; cursor: pointer; transition: 0.3s; font-weight: bold; }
+        .tab-btn:hover, .tab-btn.active { background: #00f2fe; color: #000; border-color: #00f2fe; }
+        .container { width: 95%; margin: 30px auto; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+        .img-card { position: relative; aspect-ratio: 1/1; border-radius: 15px; overflow: hidden; border: 1px solid #333; cursor: pointer; background: #111; }
+        .img-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; transition: 0.4s; }
+        .img-card:hover .overlay { opacity: 1; }
+        .img-card:hover img { transform: scale(1.1) blur(3px); }
+        .desc { font-size: 0.9rem; margin-bottom: 15px; color: #00f2fe; font-weight: bold; }
+        .q-box { display: flex; gap: 8px; }
+        .q-btn { border: none; padding: 8px 15px; border-radius: 5px; font-weight: bold; cursor: pointer; transition: 0.2s; background: #fff; color: #000; }
+        .q-btn:hover { background: #00f2fe; color: #fff; }
+        footer { text-align: center; padding: 30px; opacity: 0.5; font-size: 0.8rem; }
+    </style>
+</head>
+<body id="bg">
+    <audio id="h-snd" src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3"></audio>
+    <audio id="c-snd" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3"></audio>
+    <header>
+        <h1>ELITE HUB</h1>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="load('all', this)">ALL</button>
+            <button class="tab-btn" onclick="load('cars', this)">CARS</button>
+            <button class="tab-btn" onclick="load('nature', this)">NATURE</button>
+            <button class="tab-btn" onclick="load('pc', this)">PC / 4K</button>
+            <button class="tab-btn" onclick="load('mobile', this)">MOBILE</button>
+        </div>
+    </header>
+    <div class="container"><div class="gallery-grid" id="grid"></div></div>
+    <footer>© 2026 ELITE WALLPAPER SYSTEM</footer>
+    <script>
+        const grid = document.getElementById('grid');
+        const bg = document.getElementById('bg');
+        const hSnd = document.getElementById('h-snd');
+        const cSnd = document.getElementById('c-snd');
+        async function dl(url, n) { cSnd.play(); const r = await fetch(url); const b = await r.blob(); const u = window.URL.createObjectURL(b); const a = document.createElement('a'); a.href = u; a.download = n; a.click(); }
+        function load(cat, btn) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            if(btn) btn.classList.add('active');
+            grid.innerHTML = '';
+            for(let i=1; i<=100; i++) {
+                const id = Math.floor(Math.random() * 500);
+                let w = 1920, h = 1080;
+                if(cat === 'mobile') { w = 1080; h = 1920; }
+                const hd = `https://picsum.photos/id/${id}/${w}/${h}`;
+                const u4k = `https://picsum.photos/id/${id}/3840/2160`;
+                const thumb = `https://picsum.photos/id/${id}/400/400`;
+                const card = document.createElement('div');
+                card.className = 'img-card';
+                card.innerHTML = `<img src="${thumb}" loading="lazy"><div class="overlay"><p class="desc">PREMIUM ${cat.toUpperCase()}</p><div class="q-box"><button class="q-btn" onclick="dl('${hd}','HD.jpg')">HD</button><button class="q-btn" onclick="dl('${u4k}','4K.jpg')">4K</button></div></div>`;
+                card.onmouseenter = () => { hSnd.currentTime=0; hSnd.play(); bg.style.backgroundImage = `url('${hd}')`; };
+                grid.appendChild(card);
+            }
+        }
+        load('all');
+    </script>
+</body>
+</html>
+<meta name="description" content="Download 1000+ High Quality 4K Wallpapers for PC and Mobile. Best Cars and Nature images.">
+<meta name="keywords" content="4K Wallpapers, Free Images, Cars Wallpapers, Nature Backgrounds, Desktop Wallpapers">
+<meta name="author" content="Your Name">
+
+<meta property="og:title" content="Elite Wallpaper Hub - 4K Gallery">
+<meta property="og:description" content="Explore and download thousands of high-quality wallpapers.">
+<meta property="og:image" content="link-to-your-thumbnail.jpg">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1000 Unique Wallpapers</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background: #000 no-repeat center center fixed; 
+            background-size: cover; 
+            transition: background-image 0.5s ease-in-out;
+            font-family: sans-serif;
+        }
+
+        body::after {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); z-index: -1;
+        }
+
+        header { text-align: center; padding: 30px; color: #fff; }
+
+        .container { 
+            width: 90%; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding-bottom: 100px;
+        }
+
+        /* عرض الصور تحت بعض */
+        #gallery { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 50px; 
+        }
+
+        .img-card { 
+            position: relative; 
+            width: 100%; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            border: 2px solid #333;
+            cursor: pointer;
+            background: #111;
+        }
+
+        .img-card img { 
+            width: 100%; 
+            height: auto; 
+            display: block;
+            transition: 0.5s;
+        }
+
+        .overlay { 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6); display: flex; justify-content: center;
+            align-items: center; opacity: 0; transition: 0.3s;
+        }
+
+        .img-card:hover .overlay { opacity: 1; }
+        .img-card:hover img { transform: scale(1.02); }
+
+        .dl-btns { display: flex; gap: 20px; }
+        
+        .dl-btns button {
+            padding: 15px 30px; border: none; border-radius: 8px;
+            background: #00f2fe; color: #000; font-weight: bold;
+            cursor: pointer; transition: 0.2s;
+        }
+
+        .dl-btns button:hover { background: #fff; transform: translateY(-3px); }
+    </style>
+</head>
+<body id="main-bg">
+
+    <header>
+        <h1>ULTIMATE GALLERY</h1>
+        <p>1000 Unique Vertical Wallpapers</p>
+    </header>
+
+    <div class="container">
+        <div id="gallery"></div>
+    </div>
+
+    <script>
+        const gallery = document.getElementById('gallery');
+        const bg = document.getElementById('main-bg');
+
+        // Function to force direct download
+        async function downloadImage(url, name) {
+            const response = await fetch(url);
+            const blob = await response.blob();
+            const blobUrl = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = blobUrl;
+            link.download = name;
+            link.click();
+            window.URL.revokeObjectURL(blobUrl);
+        }
+
+        // Generate 1000 Unique Images
+        function generateGallery() {
+            // Create an array of 1000 unique IDs (from 1 to 1000)
+            const ids = Array.from({length: 1000}, (_, i) => i + 1);
+            
+            // Shuffle IDs if you want them random but not repeated
+            ids.sort(() => Math.random() - 0.5);
+
+            ids.forEach((id) => {
+                const hdUrl = `https://picsum.photos/id/${id}/1920/1080`;
+                const thumbUrl = `https://picsum.photos/id/${id}/1000/600`;
+                const u4k = `https://picsum.photos/id/${id}/3840/2160`;
+
+                const card = document.createElement('div');
+                card.className = 'img-card';
+                card.innerHTML = `
+                    <img src="${thumbUrl}" alt="Unique Image ${id}" loading="lazy">
+                    <div class="overlay">
+                        <div class="dl-btns">
+                            <button onclick="downloadImage('${hdUrl}', 'Wallpaper-HD-${id}.jpg')">DOWNLOAD HD</button>
+                            <button onclick="downloadImage('${u4k}', 'Wallpaper-4K-${id}.jpg')">DOWNLOAD 4K</button>
+                        </div>
+                    </div>
+                `;
+
+                // Update site background on hover
+                card.onmouseenter = () => {
+                    bg.style.backgroundImage = `url('${hdUrl}')`;
+                };
+
+                gallery.appendChild(card);
+            });
+        }
+
+        generateGallery();
+    </script>
+</body>
+</html>
+<title>Elite Wallpapers - 1000+ Free HD Images</title>
+<meta name="description" content="Download 1000 unique high quality wallpapers for PC and Mobile.">
